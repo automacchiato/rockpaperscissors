@@ -1,24 +1,50 @@
-function play (playerChoice) {
-    const choices = ['Rock','Paper','Scissors'];
-    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+let skorPemain = 0;
+let skorKomputer = 0;
+const bunyiMenang = document.getElementById('bunyiMenang');
+const bunyiKalah = document.getElementById('bunyiKalah');
+const bunyiSeri = document.getElementById('bunyiSeri');
 
-    let result = '';
+function main(pilihanPemain) {
+    const pilihan = ['Gunting', 'Batu', 'Kertas'];
+    const pilihanKomputer = pilihan[Math.floor(Math.random() * pilihan.length)];
 
-    if (playerChoice === computerChoice){
-        result = `It's a draw! You both picked ${playerChoice}.`;
+    let keputusan = '';
+
+    if (pilihanPemain === pilihanKomputer){
+        keputusan = `Pemainan seri! Anda berdua memilih ${pilihanPemain}.`;
+        bunyiSeri.play();
     } else if (
-        (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
-        (playerChoice === 'Paper' && computerChoice === 'Rock') ||
-        (playerChoice === 'Scissors' && computerChoice === 'Paper')
+        (pilihanPemain === 'Batu' && pilihanKomputer == 'Gunting') ||
+        (pilihanPemain === 'Kertas' && pilihanKomputer == 'Batu') ||
+        (pilihanPemain === 'Gunting' && pilihanKomputer == 'Kertas')
     ) {
-        result = `You win! ${playerChoice} beats ${computerChoice}.`;
+        keputusan = `Anda menang! ${pilihanPemain} mengalahkan ${pilihanKomputer}.`;
+        skorPemain++;
+        bunyiMenang.play();
     } else {
-        result = `You lose! ${computerChoice} beats ${playerChoice}`;
+        keputusan = `Anda kalah :( ${pilihanKomputer} mengalahkan ${pilihanPemain}.`;
+        skorKomputer++;
+        bunyiKalah.play();
     }
 
-    document.getElementById('result').textContent = result;
+    document.getElementById('keputusan').textContent = keputusan;
+    document.getElementById('skorPemain').textContent = skorPemain;
+    document.getElementById('skorKomputer').textContent = skorKomputer;
+
+    document.getElementById('setSemulaPermainan').style.display = 'inline-block';
 }
 
-function reset(){
-    document.getElementById('result').textContent = '';
+function setSemulaPermainan (){
+    document.getElementById('keputusan').textContent = '';
+    document.getElementById('setSemulaPermainan').style.display = 'none';
+
+    skorPemain = 0;
+    skorKomputer = 0;
+
+    document.getElementById('skorPemain').textContent = skorPemain;
+    document.getElementById('skorKomputer').textContent = skorKomputer;
+
 }
+
+
+

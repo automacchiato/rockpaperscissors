@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <title>Gunting Batu Kertas</title>
     <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
-    <h1>Rock Paper Scissors!</h1>
+    <h1>Gunting Batu Kertas</h1>
     <div>
-        <button onclick="play('rock')">🪨 Rock</button>
-        <button onclick="play('paper')">📃 Paper</button>
-        <button onclick="play('scissors')">✂️ Scissors</button>
-    </div>
-    <div class="result" id="result">
-
+        <button onclick="main('Batu')">🪨 Batu</button>
+        <button onclick="main('Kertas')">📃 Kertas</button>
+        <button onclick="main('Gunting')">✂️ Gunting</button>
     </div>
 
-    <script src="/assets/script.js"></script>
+    <div class="keputusan" id="keputusan"></div>
+
+    <div>
+        <button onclick="setSemulaPermainan()" id="setSemulaPermainan" style="display: none">🔁Set Semula</button>
+    </div>
+
+    <div class="skor">
+        <p> 🧑Pemain: <span id="skorPemain">0</span> | 🤖Komputer: <span id="skorKomputer">0</span> </p>
+    </div>
+
+    <audio id="bunyiMenang" src="/assets/audio/menang.mp3"></audio>
+    <audio id="bunyiKalah" src="/assets/audio/kalah.mp3"></audio>
+    <audio id="bunyiSeri" src="/assets/audio/seri.mp3"></audio>
+
+<script src="/assets/script.js"></script>
 </body>
 </html>
