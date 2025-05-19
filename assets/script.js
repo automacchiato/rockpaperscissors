@@ -1,5 +1,5 @@
 function play (playerChoice) {
-    const choices = ['rock','paper','scissors'];
+    const choices = ['Rock','Paper','Scissors'];
     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
     let result = '';
@@ -7,9 +7,9 @@ function play (playerChoice) {
     if (playerChoice === computerChoice){
         result = `It's a draw! You both picked ${playerChoice}.`;
     } else if (
-        (playerChoice === 'rock' && computerChoice === 'scissors') ||
-        (playerChoice === 'paper' && computerChoice === 'rock') ||
-        (playerChoice === 'scissors' && computerChoice === 'paper')
+        (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
+        (playerChoice === 'Paper' && computerChoice === 'Rock') ||
+        (playerChoice === 'Scissors' && computerChoice === 'Paper')
     ) {
         result = `You win! ${playerChoice} beats ${computerChoice}.`;
     } else {
@@ -17,5 +17,8 @@ function play (playerChoice) {
     }
 
     document.getElementById('result').textContent = result;
-    
+}
+
+function reset(){
+    document.getElementById('result').textContent = '';
 }
